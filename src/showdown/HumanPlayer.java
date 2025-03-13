@@ -2,7 +2,6 @@ package showdown;
 
 import java.util.List;
 import java.util.Scanner;
-import javax.smartcardio.Card;
 
 public class HumanPlayer extends ShowdownPlayer {
 

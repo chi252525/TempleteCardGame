@@ -99,3 +99,51 @@ c2m11-2
 ![1699080249807-c2m11-2.png](1699080249807-c2m11-2.png)
 
 如果你使用的是強型別程式語言的話，便能搭配使用泛型 (Generic Type) 來優化樣板方法和各步驟實作的可讀性。
+
+
+
+@startuml
+actor User
+
+User -> showdown.Main: main(String[] args)
+showdown.Main -> ShowdownDeck: standard52Cards()
+showdown.Main -> ShowdownGame: ShowdownGame(standard52Cards())
+showdown.Main -> ShowdownGame: start()
+ShowdownGame -> ShowdownGame: onGameBegins()
+ShowdownGame -> ShowdownPlayer: takeTurn(ShowdownPlayer)
+ShowdownPlayer -> ShowdownCard: playCard()
+ShowdownGame -> ShowdownGame: isValidMove(ShowdownCard)
+ShowdownGame -> ShowdownGame: pass(ShowdownPlayer)
+ShowdownGame -> ShowdownGame: playCard(ShowdownPlayer, ShowdownCard)
+ShowdownGame -> ShowdownCard: getColor()
+ShowdownGame -> ShowdownCard: getNumber()
+ShowdownGame -> ShowdownGame: reshuffleDeckIfEmpty()
+ShowdownGame -> ShowdownGame: getInitialHandSize()
+ShowdownGame -> ShowdownGame: createRandomPlayer(String)
+ShowdownGame -> ShowdownGame: isGameOver(int)
+ShowdownGame -> ShowdownGame: determineTheLastWinner()
+ShowdownGame -> ExchangeHands: exchange(ShowdownPlayer, ShowdownPlayer)
+@enduml
+
+
+@startuml
+actor User
+
+User -> uno.Main: main(String[] args)
+uno.Main -> UnoDeck: standardUnoCards()
+uno.Main -> UnoGame: UnoGame(standardUnoCards())
+uno.Main -> UnoGame: start()
+UnoGame -> UnoGame: onGameBegins()
+UnoGame -> UnoPlayer: takeTurn(UnoPlayer)
+UnoPlayer -> TurnMove: createMove()
+UnoGame -> UnoGame: isValidMove(TurnMove)
+UnoGame -> UnoGame: pass(UnoPlayer)
+UnoGame -> UnoGame: playCard(UnoPlayer, TurnMove)
+UnoGame -> UnoCard: getColor()
+UnoGame -> UnoCard: getNumber()
+UnoGame -> UnoGame: reshuffleDeckIfEmpty()
+UnoGame -> UnoGame: getInitialHandSize()
+UnoGame -> UnoGame: createRandomPlayer(String)
+UnoGame -> UnoGame: isGameOver(int)
+UnoGame -> UnoGame: determineTheLastWinner()
+@enduml

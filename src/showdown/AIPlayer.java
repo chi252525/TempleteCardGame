@@ -1,7 +1,6 @@
 package showdown;
 
 import java.util.Random;
-import javax.smartcardio.Card;
 
 public class AIPlayer extends ShowdownPlayer {
 
