@@ -3,9 +3,9 @@ package templete;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Hand<Card> implements Iterable<Card> {
+
   private final List<Card> cards = new ArrayList<>();
 
   public void addCard(Card card) {
@@ -29,15 +29,7 @@ public class Hand<Card> implements Iterable<Card> {
     return cards.iterator();
   }
 
-  public boolean isEmpty() {
-    return cards.isEmpty();
-  }
-
-  public Stream<Card> stream() {
-    return cards.stream();
-  }
-
-  public List<Card> asList() {
+  public List<Card> getCards() {
     return cards;
   }
 }

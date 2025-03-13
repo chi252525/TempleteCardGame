@@ -1,15 +1,13 @@
 package showdown;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import templete.AbstractPlayer;
 
 public abstract class ShowdownPlayer extends AbstractPlayer<ShowdownCard> {
 
-   private int points = 0;
+  private int points = 0;
 
-  private Exchange exchange = new Exchange(this);
+  private ExchangeHands exchange = new ExchangeHands(this);
 
   public ShowdownPlayer(String name) {
     nameHimself(name);
@@ -24,7 +22,7 @@ public abstract class ShowdownPlayer extends AbstractPlayer<ShowdownCard> {
   }
 
 
-  public void checkExchangeHandCard(ShowdownPlayer exchangee) {
+  public void decideWhetherToExchangeHands(ShowdownPlayer exchangee) {
     if (exchange.isExchange()
         && exchange.getExchangee() != null) {
       System.out.println(this.getName() + "和" + exchange.getExchangee().getName() + "手牌交換中");

@@ -6,10 +6,9 @@ import java.util.List;
 public abstract class AbstractGame<Player extends AbstractPlayer<Card>, Card> {
 
   private List<Player> playersInGame = new ArrayList<>();
-  private Player lastWinner;
   protected Player turnPlayer;
-  protected int turn = 0;
-  protected int round = 0;
+  private int turn = 0;
+  private int round = 0;
   protected Deck<Card> deck;
 
   public AbstractGame(Deck<Card> deck) {
@@ -22,12 +21,12 @@ public abstract class AbstractGame<Player extends AbstractPlayer<Card>, Card> {
 
   public void start() {
     nameThemselves();
-    drawHands();
+    drawHandCards();
     onGameBegins();
     nextTurn();
   }
 
-  private void drawHands() {
+  private void drawHandCards() {
     int initialHandSize = getInitialHandSize();
     for (int i = 0; i < initialHandSize; i++) {
       for (Player player : playersInGame) {
@@ -56,7 +55,7 @@ public abstract class AbstractGame<Player extends AbstractPlayer<Card>, Card> {
     //hook 只有showdown會用到
   }
 
-  protected void nextTurn() {
+  private void nextTurn() {
     turnPlayer = playersInGame.get(turn % playersInGame.size());
     takeTurn(turnPlayer);
     turn++;

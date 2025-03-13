@@ -1,16 +1,15 @@
 package showdown;
 
 import java.util.List;
-import javax.smartcardio.Card;
 
-public class Exchange {
+public class ExchangeHands {
 
   private int currentCount = 3;//当前交换次数
   private ShowdownPlayer self;
   private ShowdownPlayer exchangee;
   private boolean isExchange = false;
 
-  public Exchange(ShowdownPlayer self) {
+  public ExchangeHands(ShowdownPlayer self) {
     this.self = self;
   }
 
@@ -44,10 +43,6 @@ public class Exchange {
 
   public boolean isExchange() {
     return isExchange;
-  }
-
-  public int getCurrentCount() {
-    return currentCount;
   }
 
   public ShowdownPlayer getExchangee() {

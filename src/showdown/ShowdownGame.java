@@ -28,7 +28,7 @@ public class ShowdownGame extends AbstractGame<ShowdownPlayer, ShowdownCard> {
     } while (!isGameOver(currentRound++));
   }
 
-  public void startRound(List<ShowdownPlayer> players) {
+  private void startRound(List<ShowdownPlayer> players) {
     playInRound(players);
 
   }
@@ -66,13 +66,13 @@ public class ShowdownGame extends AbstractGame<ShowdownPlayer, ShowdownCard> {
     return currentRound >= NUM_OF_ROUNDS;
   }
 
-  public void playInRound(List<ShowdownPlayer> players) {
+  private void playInRound(List<ShowdownPlayer> players) {
 
     //每个玩家出一张牌
     for (ShowdownPlayer currentPlayer : players) {
       ShowdownPlayer choiceExchangee = getExchangePlayer(players, currentPlayer);
       //隨機選擇一個玩家交換手牌
-      currentPlayer.checkExchangeHandCard(choiceExchangee);
+      currentPlayer.decideWhetherToExchangeHands(choiceExchangee);
       //當下的玩家出牌
       takeTurn(currentPlayer);
     }
