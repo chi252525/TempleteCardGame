@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class AbstractGame<Player extends AbstractPlayer<Card>, Card> {
 
-  private List<Player> playersInGame = new ArrayList<>();
+  public List<Player> playersInGame = new ArrayList<>();
   protected Player turnPlayer;
   private int turn = 0;
   private int round = 0;
